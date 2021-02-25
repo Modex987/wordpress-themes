@@ -1,0 +1,21 @@
+body,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(233, 233, 233);
+}
+
+header {
+    background-color: green;
+    margin-bottom: 3rem;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    margin-top: 3rem;
+}
