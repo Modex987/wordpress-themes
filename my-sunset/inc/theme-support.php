@@ -1,14 +1,14 @@
 <?php
 
 /*
-@package Sunset
+    @package Sunset
 
     ===========================
         THEME SUPPORT OPTIONS
     ===========================
 */
 
-add_action('after_setup_theme', function(){
+add_action('after_setup_theme', function() {
 
     if(is_array(get_option('post_formats'))) {
 
@@ -27,4 +27,18 @@ add_action('after_setup_theme', function(){
     if(!empty($custom_background)){
         add_theme_support('custom-background');
     }
+
+    add_theme_support('custom-logo', array(
+        'height'      => 100,
+        'width'       => 100,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+        'unlink-homepage-logo' => true, 
+    ));
+
+    // register_nav_menu();
+    register_nav_menus(array(
+        'primary' => 'Theme header Primary Menu',
+    ));
 });

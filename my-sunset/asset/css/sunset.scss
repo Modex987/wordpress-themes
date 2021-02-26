@@ -1,0 +1,118 @@
+/**
+*
+*   @package sunset_Theme
+*
+*/
+
+// ================
+//      Mixins
+// ================
+
+@mixin animate($attr: all, $time: 1000ms) {
+    transition: $attr $time ease;
+}
+
+@function calc($heigh, $width) {
+    @return $heigh * $width;
+}
+
+@function header-bg-color($opacity) {
+    @return rgba(0, 128, 0, $opacity);
+}
+
+/* *************************************************  Header  ************************************************* */
+
+// variables
+
+$min-h: 315px;
+$header-bg-color: rgba(0, 128, 0, 0.5);
+$transition: 1s;
+
+header {
+    position: relative;
+    display: block;
+    min-height: $min-h;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .table {
+        display: table;
+        width: 100%;
+        min-height: $min-h;
+        background-color: header-bg-color(0.3);
+
+        .table-cell {
+            display: table-cell;
+            vertical-align: middle;
+            color: white;
+
+            h1 span,
+            h4 span {
+                background-color: header-bg-color(0.9);
+                padding: 5px;
+                margin: 5px;
+            }
+        }
+    }
+
+    nav {
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: 0;
+
+        ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: header-bg-color(0.5);
+
+            li {
+                margin: 0 0.5rem 0 0.5rem;
+                padding: 0.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: rgba(202, 202, 202, 0.3);
+                }
+
+                &.current_page_item {
+                    a {
+                        // border-bottom: 2px solid white;
+                    }
+                }
+
+                a {
+                    text-decoration: none;
+                    color: white;
+                    min-width: 60px;
+                    position: relative;
+                    padding-bottom: 5px;
+
+                    &:hover {
+                        @include animate(border-bottom, 1000ms);
+                        @include animate(color, 1000ms);
+                        text-decoration: none;
+                        color: white;
+                        // border-bottom: 2px solid white;
+
+                        &:after {
+                            content: "";
+                            position: absolute;
+                            display: block;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            height: 2px;
+                            background-color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* *************************************************  XXXXXXX  ************************************************* */

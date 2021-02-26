@@ -1,0 +1,95 @@
+/**
+*
+*   @package sunset_Theme
+*
+*/
+/* *************************************************  Header  ************************************************* */
+header {
+  position: relative;
+  display: block;
+  min-height: 315px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+header .table {
+  display: table;
+  width: 100%;
+  min-height: 315px;
+  background-color: rgba(0, 128, 0, 0.3);
+}
+
+header .table .table-cell {
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+}
+
+header .table .table-cell h1 span,
+header .table .table-cell h4 span {
+  background-color: rgba(0, 128, 0, 0.9);
+  padding: 5px;
+  margin: 5px;
+}
+
+header nav {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: rgba(0, 128, 0, 0.5);
+}
+
+header nav ul li {
+  margin: 0 0.5rem 0 0.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+header nav ul li:hover {
+  background-color: rgba(202, 202, 202, 0.3);
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: white;
+  min-width: 60px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+header nav ul li a:hover {
+  -webkit-transition: border-bottom 1000ms ease;
+  transition: border-bottom 1000ms ease;
+  -webkit-transition: color 1000ms ease;
+  transition: color 1000ms ease;
+  text-decoration: none;
+  color: white;
+}
+
+header nav ul li a:hover:after {
+  content: "";
+  position: absolute;
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background-color: white;
+}
+
+/* *************************************************  XXXXXXX  ************************************************* */
+/*# sourceMappingURL=sunset.css.map */
