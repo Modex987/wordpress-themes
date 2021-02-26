@@ -5,7 +5,7 @@
      * @package sunset_Theme
      */
 ?>
-
+    </div>
     
     <?php wp_footer(); ?>
         

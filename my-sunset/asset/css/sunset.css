@@ -4,7 +4,7 @@
 *
 */
 /* *************************************************  Header  ************************************************* */
-header {
+header.header-container {
   position: relative;
   display: block;
   min-height: 315px;
@@ -13,34 +13,34 @@ header {
   background-size: cover;
 }
 
-header .table {
+header.header-container .table {
   display: table;
   width: 100%;
   min-height: 315px;
   background-color: rgba(0, 128, 0, 0.3);
 }
 
-header .table .table-cell {
+header.header-container .table .table-cell {
   display: table-cell;
   vertical-align: middle;
   color: white;
 }
 
-header .table .table-cell h1 span,
-header .table .table-cell h4 span {
+header.header-container .table .table-cell h1 span,
+header.header-container .table .table-cell h4 span {
   background-color: rgba(0, 128, 0, 0.9);
   padding: 5px;
   margin: 5px;
 }
 
-header nav {
+header.header-container nav {
   position: absolute;
   right: 0;
   left: 0;
   bottom: 0;
 }
 
-header nav ul {
+header.header-container nav ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,17 +53,22 @@ header nav ul {
   background-color: rgba(0, 128, 0, 0.5);
 }
 
-header nav ul li {
+header.header-container nav ul li {
   margin: 0 0.5rem 0 0.5rem;
   padding: 0.5rem;
   cursor: pointer;
 }
 
-header nav ul li:hover {
+header.header-container nav ul li:hover {
   background-color: rgba(202, 202, 202, 0.3);
 }
 
-header nav ul li a {
+header.header-container nav ul li.active a {
+  opacity: 1;
+  border-bottom: 2px solid white;
+}
+
+header.header-container nav ul li a {
   text-decoration: none;
   color: white;
   min-width: 60px;
@@ -71,7 +76,7 @@ header nav ul li a {
   padding-bottom: 5px;
 }
 
-header nav ul li a:hover {
+header.header-container nav ul li a:hover {
   -webkit-transition: border-bottom 1000ms ease;
   transition: border-bottom 1000ms ease;
   -webkit-transition: color 1000ms ease;
@@ -80,7 +85,7 @@ header nav ul li a:hover {
   color: white;
 }
 
-header nav ul li a:hover:after {
+header.header-container nav ul li a:hover:after {
   content: "";
   position: absolute;
   display: block;

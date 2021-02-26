@@ -37,8 +37,44 @@ add_action('after_setup_theme', function() {
         'unlink-homepage-logo' => true, 
     ));
 
+    add_theme_support('post-thumbnails');
+
     // register_nav_menu();
     register_nav_menus(array(
         'primary' => 'Theme header Primary Menu',
     ));
 });
+
+
+
+/*
+    ==================================
+        BLOG LOOP CUSTOM FUNCTIONS
+    ==================================
+*/
+
+function sunset_post_meta() {
+    $posted_on = human_time_diff(get_the_time('U'), current_time('timestamp'));
+
+    $categories = get_the_category();
+
+    $outputCategories = '';
+    $i = 1;
+
+    if(!empty($categories)){            
+        foreach($categories as $category){
+            if($i > 1) $outputCategories .= ', '; 
+
+            $outputCategories .= '<a href="' . esc_url(get_category_link($category->term_id)) . '" alt="' . esc_attr('View all posts in %s', $category->name) . '" >' . esc_html($category->name) . '</a>';
+
+            $i++;
+        }
+    }
+
+    return '<span class="posted-on">posted <a href="' . esc_url(get_the_permalink()) . '">' . $posted_on . '</a> ago</span> / <span class="posted-in">' . $outputCategories . '</span>';
+}
+
+
+
+
+

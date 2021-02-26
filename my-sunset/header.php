@@ -28,7 +28,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <header class="text-center" style="background-image: url(<?php header_image(); ?>);">
+                    <header class="header-container text-center" style="background-image: url(<?php header_image(); ?>);">
 
                         <div class="header-content table">
                             <div class="table-cell">
@@ -53,11 +53,10 @@
                                     'container' => false,
                                     'menu_class' => 'nav nav-bar',
                                     'menu_id' => 'header-nav',
+                                    'walker' => new Walker_Nav_Primary(),
                                 ));
                             ?>
                         </nav>
                     </header>
                 </div>
             </div>
-
-        </div>

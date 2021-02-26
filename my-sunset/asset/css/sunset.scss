@@ -28,7 +28,7 @@ $min-h: 315px;
 $header-bg-color: rgba(0, 128, 0, 0.5);
 $transition: 1s;
 
-header {
+header.header-container {
     position: relative;
     display: block;
     min-height: $min-h;
@@ -78,9 +78,10 @@ header {
                     background-color: rgba(202, 202, 202, 0.3);
                 }
 
-                &.current_page_item {
+                &.active {
                     a {
-                        // border-bottom: 2px solid white;
+                        opacity: 1;
+                        border-bottom: 2px solid white;
                     }
                 }
 
@@ -96,7 +97,6 @@ header {
                         @include animate(color, 1000ms);
                         text-decoration: none;
                         color: white;
-                        // border-bottom: 2px solid white;
 
                         &:after {
                             content: "";
