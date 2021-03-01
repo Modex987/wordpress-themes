@@ -24,11 +24,11 @@
                 <div class="carousel-inner">
                     <?php foreach($attachements as $attachement): ?>
                         <?php
-                            $actif = $i == 1 ? 'active' : '';
+                            $actif = ($i === 1) ? 'active' : '';
                             $i++;
                         ?>
                         <div class="carousel-item <?php echo $actif ?> standard-featured bg-img" style="background-image: url(<?php echo wp_get_attachment_url($attachement->ID); ?>);">
-                        
+                            <p><?php echo wp_get_attachment_caption($attachement->ID); ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -53,7 +53,6 @@
     </header>
 
     <div class="entry-content">
-
         <div class="entry-excerpt">
             <?php the_excerpt(); ?>
         </div>
