@@ -1,0 +1,7 @@
+@function calc($heigh, $width) {
+    @return $heigh * $width;
+}
+
+@function header-bg-color($opacity) {
+    @return rgba(0, 128, 0, $opacity);
+}

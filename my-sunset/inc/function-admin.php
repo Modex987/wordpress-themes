@@ -83,7 +83,7 @@ function user_description_markup() {
 }
 
 function post_formats_markup() {
-    $formats = array( 'aside', 'chat', 'gallery', 'link', 'image', 'quote', 'status', 'video');
+    $formats = array( 'aside', 'chat', 'gallery', 'link', 'image', 'quote', 'status', 'video', 'audio');
 
     foreach($formats as $format) {
         $post_formats = get_option('post_formats');

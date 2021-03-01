@@ -4,38 +4,54 @@
 *
 */
 
-// ================
-//      Mixins
-// ================
+@import "base/variables";
+@import "base/mixins";
+@import "base/functions";
 
-@mixin animate($attr: all, $time: 1000ms) {
-    transition: $attr $time ease;
+/*
+*
+*   =============
+*      GENERIC    
+*   =============
+*
+*/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-@function calc($heigh, $width) {
-    @return $heigh * $width;
+a {
+    @include animate(color, 320ms);
+
+    color: $primary-color;
+
+    &:focus,
+    &:hover {
+        text-decoration: none;
+    }
 }
 
-@function header-bg-color($opacity) {
-    @return rgba(0, 128, 0, $opacity);
+.bg-img {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
-/* *************************************************  Header  ************************************************* */
-
-// variables
-
-$min-h: 315px;
-$header-bg-color: rgba(0, 128, 0, 0.5);
-$transition: 1s;
+/*
+*
+*   =============
+*      HEADER    
+*   =============
+*
+*/
 
 header.header-container {
     position: relative;
     display: block;
     min-height: $min-h;
 
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    @extend .bg-img;
 
     .table {
         display: table;
@@ -115,4 +131,255 @@ header.header-container {
     }
 }
 
-/* *************************************************  XXXXXXX  ************************************************* */
+/*
+*
+*   ==================
+*      Standard POST
+*   ==================
+*
+*/
+
+article {
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 200;
+
+    &.entry-title {
+        line-height: 1.5em;
+        margin: 50px 0 5px;
+        padding: 0;
+
+        &:hover,
+        &:focus {
+            color: $dark-gray;
+        }
+
+        &:before,
+        &:after {
+            content: "~";
+            display: inline-block;
+            position: relative;
+        }
+
+        &:before {
+            margin-right: 10px;
+        }
+
+        &:after {
+            margin-left: 10px;
+        }
+    }
+}
+
+div {
+    &.entry-meta {
+        color: $light-gray;
+        font-size: 13px;
+        font-weight: 300;
+        margin-bottom: 10px;
+
+        a {
+            font-weight: 500;
+            color: $light-gray;
+
+            &:hover,
+            &:focus {
+                color: $dark-gray;
+            }
+        }
+    }
+}
+
+.standard-featured-link {
+    display: block;
+    position: relative;
+
+    &:hover,
+    &:focus {
+        .standard-featured {
+            &:before {
+                background-color: rgba($color: #000000, $alpha: 0);
+                box-shadow: inset 0 0 15px rgba($color: #000000, $alpha: 0.3);
+            }
+        }
+    }
+}
+
+.standard-featured {
+    margin: 5px;
+    height: 330px;
+    display: block;
+    position: relative;
+
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba($color: #000000, $alpha: 0.15);
+        box-shadow: inset 0 0 15px rgba($color: #000000, $alpha: 0.7);
+
+        @include animate(background-color, 500ms);
+    }
+}
+
+.entry-excerpt {
+    p {
+        font-size: 17px;
+        line-height: 1.4em;
+        margin: 30px 0 1.5px;
+        padding: 0 5px;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+    }
+}
+
+.btn-container {
+    margin-bottom: 30px;
+
+    .btn-sunset {
+        @include animate(all, 320ms);
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 200;
+        color: $light-gray;
+        padding: 6px 15px;
+        margin: 10px;
+        border-radius: 0;
+        border: 1px solid $light-gray;
+
+        &:hover,
+        &:focus {
+            color: white;
+            border-color: $dark-gray;
+            background-color: $dark-gray;
+        }
+    }
+}
+
+.entry-footer {
+    padding: 10px 5px;
+    border-bottom: 4px solid rgba($color: $light-grey, $alpha: 0.5);
+    text-transform: uppercase;
+
+    a {
+        color: $light-grey;
+        display: inline-block;
+        margin: 0 4px;
+
+        &:hover,
+        &:focus {
+            color: $dark-gray;
+        }
+    }
+}
+
+/*
+*
+*   ==================
+*      Standard POST
+*   ==================
+*
+*/
+
+.sunset-format-image {
+    .entry-header {
+        height: 500px;
+        color: white;
+    }
+
+    h1,
+    .entry-meta {
+        margin-bottom: 40px;
+        color: white;
+        a {
+            color: white;
+        }
+    }
+}
+
+/*
+*
+*   =======================
+*      Audio Post Format
+*   =======================
+*
+*/
+
+.sunset-format-audio {
+    .entry-title,
+    .entry-meta {
+        display: inline-block;
+        margin: 0 10px;
+        text-align: left;
+        &:after,
+        &:before {
+            display: none;
+        }
+    }
+
+    .entry-content {
+        iframe,
+        video,
+        audio,
+        object {
+            width: 100%;
+            height: 166px;
+        }
+    }
+}
+
+/*
+*
+*   =======================
+*      Video Post Format
+*   =======================
+*
+*/
+
+.sunset-format-video {
+    .entry-title,
+    .entry-meta {
+        display: inline-block;
+        margin: 0 10px;
+        text-align: left;
+        &:after,
+        &:before {
+            display: none;
+        }
+    }
+
+    .entry-content {
+        text-align: center;
+
+        iframe,
+        video,
+        audio,
+        object {
+            max-width: 900px;
+            height: 500px;
+            width: 100%;
+        }
+    }
+}
+
+/*
+*
+*   =======================
+*      Video Post Format
+*   =======================
+*
+*/
+
+.sunset-format-gallery {
+    .standard-featured {
+        height: 400px;
+    }
+}

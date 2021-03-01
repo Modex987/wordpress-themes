@@ -29,12 +29,12 @@ add_action('after_setup_theme', function() {
     }
 
     add_theme_support('custom-logo', array(
-        'height'      => 100,
-        'width'       => 100,
-        'flex-height' => true,
-        'flex-width'  => true,
-        'header-text' => array( 'site-title', 'site-description' ),
-        'unlink-homepage-logo' => true, 
+        'height'                => 100,
+        'width'                 => 100,
+        'flex-height'           => true,
+        'flex-width'            => true,
+        'header-text'           => array( 'site-title', 'site-description' ),
+        'unlink-homepage-logo'  => true, 
     ));
 
     add_theme_support('post-thumbnails');
@@ -75,6 +75,36 @@ function sunset_post_meta() {
 }
 
 
+function sunset_get_attachment($n = 1){
+
+    $output = null;
+
+    if(has_post_thumbnail() && $n == 1){
+        $output = wp_get_attachment_url(get_post_thumbnail_id(get_the_ID()));
+    }else {
+        $attachments = get_posts(array(
+            'post_type'         => 'attachment',
+            'posts_per_page'    => $n,
+            'post_parent'       => get_the_ID()
+        ));
+
+        if($attachments){
+            $output = $n == 1 ? wp_get_attachment_url($attachments[0]->ID) : $attachments ;
+        }
+    }
+
+    wp_reset_postdata();
+    
+    return $output;
+}
 
 
 
+function sunset_get_embeded_mdeia($arr = array()){
+    // $content = do_shortcode(apply_filters('the_content', $post->post_content));
+    $content = do_shortcode(apply_filters('the_content', get_the_content()));
+
+    $embed = get_media_embedded_in_content($content, $arr);
+
+    return $embed[0];
+}

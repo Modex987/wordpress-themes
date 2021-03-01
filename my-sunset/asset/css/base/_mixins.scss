@@ -1,0 +1,6 @@
+// ================
+//      Mixins
+// ================
+@mixin animate($attr: all, $time: 1000ms) {
+    transition: $attr $time ease;
+}

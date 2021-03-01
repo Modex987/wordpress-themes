@@ -1,3 +1,4 @@
+
 <?php
     /**
      * This template is for the header
@@ -24,7 +25,7 @@
 
     <body <?php body_class(); ?> >
 
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="row">
                 <div class="col-12">
