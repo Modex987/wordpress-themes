@@ -13,20 +13,26 @@
 
 
 <div id="primary" class="content-area">
-    <main class="site-mail" role="main">
+    <main role="main">
 
         <div class="container" id="posts-container">
             <?php if(have_posts()): ?>
                 <?php while(have_posts()): the_post(); ?>
 
+                    <?php
+                        $class = 'reveal';
+                        set_query_var('post-class', $class);
+                    ?>
+
                     <?php get_template_part('template-parts/content', get_post_format()); ?>
 
                 <?php endwhile; ?>
 
-                <div class="row text-right">
-                    <button class="loader-btn" data-page="1">Load More</button>
-                </div>
             <?php endif; ?>
+        </div>
+
+        <div class="container p-3 text-right">
+            <button class="loader-btn" data-page="1">Load More</button>
         </div>
 
     </main>

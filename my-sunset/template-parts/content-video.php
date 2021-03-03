@@ -8,9 +8,11 @@
  * =================
  */
 
+$class = get_query_var('post-class');
+
 ?>
 
-<artical id="post-<?php the_ID(); ?>" <?php post_class('sunset-format-video'); ?> >
+<artical id="post-<?php the_ID(); ?>" <?php post_class(array('sunset-format-video', $class)); ?> >
 
     <div class="entry-content">
         <?= sunset_get_embeded_mdeia(array('video', 'iframe')); ?>
