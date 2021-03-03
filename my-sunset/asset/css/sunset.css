@@ -360,4 +360,20 @@ div.entry-meta a:hover, div.entry-meta a:focus {
 .sunset-format-gallery .standard-featured {
   height: 400px;
 }
+
+body > footer {
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+body > footer p {
+  max-width: 400px;
+}
 /*# sourceMappingURL=sunset.css.map */

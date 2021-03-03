@@ -33,3 +33,5 @@ require_once(get_template_directory() . '/inc/theme-support.php');
 require_once(get_template_directory() . '/inc/custom-post-type.php');
 
 require_once(get_template_directory() . '/inc/walker.php');
+
+require_once(get_template_directory() . '/inc/ajax.php');
