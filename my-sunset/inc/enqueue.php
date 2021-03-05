@@ -64,6 +64,7 @@ add_action('wp_enqueue_scripts', function() use ($ver) {
             // 'ajax_url' => admin_url('admin-ajax.php'),
             'ajax_url' => "/wp-admin/admin-ajax.php",
             'action' => "load_more_action",
+            'pages_count' => ceil(wp_count_posts('post')->publish / get_option('posts_per_page')),
             'nonce' => wp_create_nonce('_loader_nonce')
         )
     );

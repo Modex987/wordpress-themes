@@ -106,5 +106,9 @@ function sunset_get_embeded_mdeia($arr = array()){
 
     $embed = get_media_embedded_in_content($content, $arr);
 
-    return $embed[0];
+    if(array_key_exists(0, $embed)){
+        return $embed[0];
+    }
+
+    return null;
 }
