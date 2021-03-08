@@ -141,6 +141,15 @@ a:focus, a:hover {
   text-decoration: none;
 }
 
+p {
+  word-break: break-all;
+}
+
+img {
+  max-width: 900px;
+  max-height: 800px;
+}
+
 .bg-img, header.header-container {
   background-repeat: no-repeat;
   background-position: center;
@@ -498,5 +507,48 @@ body > footer p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  background-color: yellowgreen;
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.sunset-share {
+  position: fixed;
+  bottom: 200px;
+  right: 0;
+  background-color: blue;
+  color: white;
+  font-weight: bold;
+}
+
+.sunset-share h4 {
+  text-align: center;
+}
+
+.sunset-share ul {
+  list-style: none;
+  padding: 3px;
+  margin-bottom: 5px;
+}
+
+#comments #comments-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#comments .comments-title {
+  margin-bottom: 2rem;
+}
+
+#comments ul,
+#comments ol {
+  list-style: none;
+}
+
+#comments ul.children,
+#comments ol.children {
+  padding-left: 6rem;
 }
 /*# sourceMappingURL=sunset.css.map */

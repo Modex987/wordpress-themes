@@ -39,6 +39,14 @@ add_action('after_setup_theme', function() {
 
     add_theme_support('post-thumbnails');
 
+    add_theme_support('html5', array(
+        'comment-list',
+        'comment-form',
+        'search-form',
+        'gallery',
+        'caption',
+    ));
+
     // register_nav_menu();
     register_nav_menus(array(
         'primary' => 'Theme header Primary Menu',
@@ -110,3 +118,34 @@ function sunset_get_embeded_mdeia($arr = array()){
 
     return null;
 }
+
+
+add_filter('the_content', function($content){
+
+    // add share buttons
+
+    if(!is_single()){
+        return $content;
+    }
+
+    $message = 'Hey Read This: ' . get_the_title();
+    $permal_link = get_the_permalink();
+    $twitter_handler = get_option('twitter_username') ? esc_attr(get_option('twitter_username')) : '';
+    
+    $twitter = 'https://twitter.com/intent/tweet?text=' . $message . '&amp;url=' . $permal_link . '&amp;via=' . $twitter_handler;
+    $facebook = 'https://www.facebook.com/sharer/sharer.php?u=' . $permal_link;
+    $google = 'https://plus.google.com/share?u=' . $permal_link;
+    
+    $content .= '
+        <div class="sunset-share">
+            <h4>share</h4>
+            <ul>
+                <li><a href="<?= ' . $twitter . '; ?>" target="_blank" rel="nofollow">twitter</a></li>
+                <li><a href="<?= ' . $facebook . '; ?>" target="_blank" rel="nofollow">facebook</a></li>
+                <li><a href="<?= ' . $google . '; ?>" target="_blank" rel="nofollow">google +</a></li>
+            </ul>
+        </div>
+    ';
+
+    return $content;
+});

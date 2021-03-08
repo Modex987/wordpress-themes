@@ -28,6 +28,12 @@
             <?php endif; ?>
         </div>
 
+        <div class="container">
+            <?php // get_template_part('template-parts/share'); ?>
+
+            <?php comments_template(); ?>
+        </div>
+
     </main>
 </div>
 

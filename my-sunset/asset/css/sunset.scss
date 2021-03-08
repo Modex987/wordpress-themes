@@ -33,6 +33,15 @@ a {
     }
 }
 
+p {
+    word-break: break-all;
+}
+
+img {
+    max-width: 900px;
+    max-height: 800px;
+}
+
 .bg-img {
     background-repeat: no-repeat;
     background-position: center;
@@ -400,4 +409,50 @@ body > footer {
 .prev-next-items {
     display: flex;
     justify-content: space-between;
+    background-color: yellowgreen;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+
+    margin-bottom: 3rem;
+}
+
+.sunset-share {
+    position: fixed;
+    bottom: 200px;
+    right: 0;
+    background-color: blue;
+
+    color: white;
+    font-weight: bold;
+
+    h4 {
+        text-align: center;
+    }
+
+    ul {
+        list-style: none;
+        padding: 3px;
+        margin-bottom: 5px;
+    }
+}
+
+#comments {
+    #comments-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .comments-title {
+        margin-bottom: 2rem;
+    }
+
+    ul,
+    ol {
+        list-style: none;
+
+        &.children {
+            padding-left: 6rem;
+        }
+    }
 }
