@@ -7,6 +7,7 @@
 @import "base/variables";
 @import "base/mixins";
 @import "base/functions";
+@import "base/wordpress";
 
 /*
 *
@@ -394,4 +395,9 @@ body > footer {
     p {
         max-width: 400px;
     }
+}
+
+.prev-next-items {
+    display: flex;
+    justify-content: space-between;
 }

@@ -98,8 +98,6 @@ function sunset_get_attachment($n = 1){
     return $output;
 }
 
-
-
 function sunset_get_embeded_mdeia($arr = array()){
     // $content = do_shortcode(apply_filters('the_content', $post->post_content));
     $content = do_shortcode(apply_filters('the_content', get_the_content()));
