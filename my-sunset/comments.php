@@ -43,11 +43,11 @@
         <!-- comments navigation -->
         <?php if(get_comment_pages_count() > 1 && get_option('page_comments')): ?>
             <nav id="comment-nav-top" class="comments-nav" role="navifation">
-                <h3><?php esc_html_e('Comment navigation', 'sunset_theme'); ?></h3>
+                <h3><?php esc_html_e('Comment navigation', DOMAIN); ?></h3>
 
                 <div>
-                    <?php previous_comments_link(esc_html__('Older Comments', 'sunset_theme')); ?>
-                    <?php next_comments_link(esc_html__('Next Comments', 'sunset_theme')); ?>
+                    <?php previous_comments_link(esc_html__('Older Comments', DOMAIN)); ?>
+                    <?php next_comments_link(esc_html__('Next Comments', DOMAIN)); ?>
                 </div>
             </nav>
         <?php endif; ?>
@@ -64,23 +64,23 @@
         <?php
             $fields = array(
                 'author' => '<div class="form-group">
-                                <label for="author">' . __('Name', 'sunset_theme') . '<span class="required"> *</span></label>
+                                <label for="author">' . __('Name', DOMAIN) . '<span class="required"> *</span></label>
                                 <input class="form-control" id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" maxlength="245" required="required">
                             </div>',
 
                 'email' => '<div class="form-group">
-                                <label for="email">' . __('Email', 'sunset_theme') . '<span class="required"> *</span></label>
+                                <label for="email">' . __('Email', DOMAIN) . '<span class="required"> *</span></label>
                                 <input class="form-control" id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" maxlength="255" required="required">
                             </div>',
                 
                 'url' => '<div class="form-group">
-                                <label for="url">' . __('Website', 'sunset_theme') . '</label>
+                                <label for="url">' . __('Website', DOMAIN) . '</label>
                                 <input class="form-control" id="url" name="url" type="text" value="' . esc_attr($commenter['comment_author_url']) . '">
                             </div>',
                 
                 'cookies' => '<div class="form-group">
                                 <input type="checkbox" id="comment_cookie" name="wp-comment-cookies-consent">
-                                <label for="comment_cookie">' . __('Save my name, email, and website in this browser for the next time I comment.', 'sunset_theme') . '</label>
+                                <label for="comment_cookie">' . __('Save my name, email, and website in this browser for the next time I comment.', DOMAIN) . '</label>
                             </div>',
                             
             );

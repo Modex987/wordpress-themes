@@ -9,6 +9,8 @@
 
                 <?php while(have_posts()): the_post(); ?>
 
+                    <?php increase_post_views_count(get_the_ID()); ?>
+
                     <?php
                         $class = 'reveal';
                         set_query_var('post-class', $class);

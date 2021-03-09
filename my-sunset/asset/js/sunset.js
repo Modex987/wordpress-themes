@@ -60,4 +60,9 @@ jQuery(document).ready(function ($) {
     $(function () {
         $('[data-toggle="popover"]').popover();
     });
+
+    $("a.js-toggle-sidebar").on("click", function () {
+        $(".sunset-sidebar").toggleClass("hidden");
+        $(".sidebar-overlay").toggleClass("hidden");
+    });
 });

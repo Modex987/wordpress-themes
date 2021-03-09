@@ -150,10 +150,14 @@ img {
   max-height: 800px;
 }
 
-.bg-img, header.header-container {
+.bg-img, header.header-container, .sunset-sidebar section .profile #profile_img {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.hidden {
+  display: none;
 }
 
 /*
@@ -167,6 +171,14 @@ header.header-container {
   position: relative;
   display: block;
   min-height: 315px;
+}
+
+header.header-container .js-toggle-sidebar {
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: absolute;
+  right: 18px;
+  top: 3px;
 }
 
 header.header-container .table {
@@ -550,5 +562,101 @@ body > footer p {
 #comments ul.children,
 #comments ol.children {
   padding-left: 6rem;
+}
+
+.sunset-sidebar {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #1f1f1f;
+  max-width: 300px;
+  color: white;
+  padding: 1rem;
+  -webkit-animation-name: "move-sidebar";
+          animation-name: "move-sidebar";
+  -webkit-animation-duration: 333ms;
+          animation-duration: 333ms;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+}
+
+@-webkit-keyframes move-sidebar {
+  0% {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes move-sidebar {
+  0% {
+    -webkit-transform: translateX(300px);
+            transform: translateX(300px);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+.sunset-sidebar section .sunset-widget-title {
+  background-color: #7272724d;
+  text-align: center;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.sunset-sidebar section .profile #profile_img {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.sunset-sidebar a {
+  display: inline-block;
+  color: rgba(219, 219, 255, 0.7);
+}
+
+.sunset-sidebar a:hover {
+  color: #dbdbff;
+}
+
+.sunset-sidebar ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.sunset-sidebar ul li {
+  margin: 3px;
+}
+
+.sunset-sidebar .js-toggle-sidebar {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  background-color: rgba(0, 0, 0, 0.9);
 }
 /*# sourceMappingURL=sunset.css.map */

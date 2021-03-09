@@ -25,13 +25,26 @@
 
     <body <?php body_class(); ?> >
 
+        <div class="sunset-sidebar hidden">
+        <!-- <div class="sunset-sidebar hidden"> -->
+            <a class="js-toggle-sidebar" href="javascript:void(0)">&times;</a>
+
+            <div class="sidebar-scroll">
+                <?php get_sidebar(); ?>
+            </div>
+        </div>
+
+        <div class="sidebar-overlay hidden"></div>
+
         <div class="container-fluid">
 
             <div class="row">
                 <div class="col-12">
                     <header class="header-container text-center" style="background-image: url(<?php header_image(); ?>);">
-
                         <div class="header-content table">
+
+                            <a class="js-toggle-sidebar" href="javascript:void(0)">&#9776;</a>
+
                             <div class="table-cell">
                                 <?php if(has_custom_logo()): ?>
                                     <div>

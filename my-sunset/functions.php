@@ -21,6 +21,8 @@
 // });
 
 
+define('DOMAIN', 'sunset_theme');
+
 
 require_once(get_template_directory() . '/inc/cleanup.php');
 
@@ -37,3 +39,5 @@ require_once(get_template_directory() . '/inc/walker.php');
 require_once(get_template_directory() . '/inc/ajax.php');
 
 require_once(get_template_directory() . '/inc/shortcodes.php');
+
+require_once(get_template_directory() . '/inc/widgets.php');

@@ -54,6 +54,18 @@ add_action('after_setup_theme', function() {
 });
 
 
+add_action('widgets_init', function(){
+    register_sidebar(array(
+        'name' => esc_html__('Sunset Sidebar', DOMAIN),
+        'id' => 'sunset-sidebar',
+        'description' => 'Dynamic Right Sidebar',
+        'before_widget' => '<section id="%1$s" class="sunset-widget %2$s">',
+        'after_widget' => '</section>',
+        'before_title' => '<h5 class="sunset-widget-title">',
+        'after_title' => '</h5>',
+    ));
+});
+
 
 /*
     ==================================
@@ -140,9 +152,9 @@ add_filter('the_content', function($content){
         <div class="sunset-share">
             <h4>share</h4>
             <ul>
-                <li><a href="<?= ' . $twitter . '; ?>" target="_blank" rel="nofollow">twitter</a></li>
-                <li><a href="<?= ' . $facebook . '; ?>" target="_blank" rel="nofollow">facebook</a></li>
-                <li><a href="<?= ' . $google . '; ?>" target="_blank" rel="nofollow">google +</a></li>
+                <li><a href="' . esc_url($twitter) . '" target="_blank" rel="nofollow">twitter</a></li>
+                <li><a href="' . esc_url($facebook) . '" target="_blank" rel="nofollow">facebook</a></li>
+                <li><a href="' . esc_url($google) . '" target="_blank" rel="nofollow">google +</a></li>
             </ul>
         </div>
     ';

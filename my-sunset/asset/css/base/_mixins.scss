@@ -4,3 +4,19 @@
 @mixin animate($attr: all, $time: 1000ms) {
     transition: $attr $time ease;
 }
+
+@mixin key_frame($name: "move-sidebar", $duration: $base_time, $count: 1) {
+    @keyframes move-sidebar {
+        0% {
+            transform: translateX(300px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    animation-name: $name;
+    animation-duration: $duration;
+    animation-iteration-count: $count;
+}
