@@ -59,13 +59,13 @@ add_action('wp_enqueue_scripts', function() use ($ver) {
 
     wp_localize_script(
         'theme-script',
-        'loader',
+        'helper_js',
         array(
-            // 'ajax_url' => admin_url('admin-ajax.php'),
-            'ajax_url' => "/wp-admin/admin-ajax.php",
-            'action' => "load_more_action",
+            // 'posts_load_url' => admin_url('admin-ajax.php'),
+            'posts_load_url' => "/wp-admin/admin-ajax.php",
+            'contact_us_url' => "/wp-admin/admin-ajax.php",
             'pages_count' => ceil(wp_count_posts('post')->publish / get_option('posts_per_page')),
-            'nonce' => wp_create_nonce('_loader_nonce')
+            'nonce' => wp_create_nonce('_nonce')
         )
     );
 });

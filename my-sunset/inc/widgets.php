@@ -125,7 +125,7 @@ class Sunset_Popular_Posts_Widget extends WP_Widget
             while($posts_query->have_posts()){
                 $posts_query->the_post();
 
-                echo '<li>' . get_the_title() . ' (' . get_the_views() . ')</li>';
+                echo '<li><a href="' . get_the_permalink() . '" >' . get_the_title() . '</a> (' . get_the_views() . ')</li>';
             }
 
             echo '</ul>';

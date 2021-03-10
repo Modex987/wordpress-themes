@@ -2,10 +2,12 @@
 
 
 <br>
+<?php settings_errors(); ?>
 <br>
 
-<?php settings_errors(); ?>
+<p>Use this <strong>shortcode</strong> to activate the Contact Form inside a Page or a Post <code>[contact_form]</code></p>
 
+<br>
 
 <form action="options.php" method="POST">
 

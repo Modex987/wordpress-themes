@@ -53,3 +53,23 @@ add_shortcode('popover', function($atts, $content = null){
             </button>';
 
 });
+
+
+/**
+ *  [contact_form]
+ */
+add_shortcode('contact_form', function($atts, $content = null) {
+
+    // get the attributes.
+    $atts = shortcode_atts(
+        array(),
+        $atts,
+        'contact_form'
+    );
+
+    // return Markup
+    ob_start();
+    include 'templates/contact_form.php';
+
+    return ob_get_clean();
+});

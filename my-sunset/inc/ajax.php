@@ -5,7 +5,7 @@ add_action('wp_ajax_nopriv_load_more_action', 'sunset_load_more');  #  wp_ajax_n
 
 
 function sunset_load_more() {
-    check_ajax_referer('_loader_nonce', '_loader_nonce');
+    check_ajax_referer('_nonce', '_nonce');
     
     $paged = $_POST['page'] + 1;
     
@@ -44,4 +44,42 @@ function sunset_check_paged($attr = false){
     }
 
     return $output;
+}
+
+
+add_action('wp_ajax_contact_us_action', 'contact_us_action');
+add_action('wp_ajax_nopriv_contact_us_action', 'contact_us_action');
+
+function contact_us_action() {
+    check_ajax_referer('_nonce', '_nonce');
+
+    $title = wp_strip_all_tags($_POST['name']);
+    $email = wp_strip_all_tags($_POST['email']);
+    $message = wp_strip_all_tags($_POST['message']);
+
+    $post_id = wp_insert_post(array(
+        'post_title' => $title,
+        'post_content' => $message,
+        'post_author' => 1,
+        'post_status' => 'publish',
+        'post_type' => 'message',
+        'meta_input' => array('_contact_email_meta_key' => $email),
+    ));
+
+    if(is_numeric($post_id) && $post_id != 0) {
+        $to = get_bloginfo('admin_email');
+        $subject = 'Sunset Contact Form - ' . $title;
+
+        $headers[] = 'From: ' . get_bloginfo('name') . '<' . $to . '>';
+        $headers[] = 'Reply-To: ' . $title . '<' . $email . '>';
+        $headers[] = 'Content-Type: text/html: charset=UTF-8';
+
+        wp_mail($to, $subject, $message, $headers);
+
+        echo 'yes';
+    }else{
+        echo 'no';
+    }
+
+    die();
 }

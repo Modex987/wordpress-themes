@@ -8,6 +8,10 @@
  * =======================
  */
 
+$detect = new Mobile_Detect();
+
+if ( !$detect->isMobile() ):
+
 ?>
 
 <artical id="post-<?php the_ID(); ?>" <?php post_class('sunset-format-gallery'); ?> >
@@ -69,3 +73,5 @@
     </footer>
 
 </artical>
+
+<?php endif; ?>

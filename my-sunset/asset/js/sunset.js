@@ -12,15 +12,15 @@ jQuery(document).ready(function ($) {
     $(document).on("click", ".loader-btn", function () {
         const page = $(".loader-btn").data("page");
 
-        if (page > loader.pages_count) return;
+        if (page > helper_js.pages_count) return;
 
         const formData = new FormData();
 
-        formData.append("action", loader.action);
-        formData.append("_loader_nonce", loader.nonce);
+        formData.append("action", "load_more_action");
+        formData.append("_nonce", helper_js.nonce);
         formData.append("page", page);
 
-        fetch(loader.ajax_url, {
+        fetch(helper_js.posts_load_url, {
             method: "POST",
             body: formData,
         })
@@ -64,5 +64,57 @@ jQuery(document).ready(function ($) {
     $("a.js-toggle-sidebar").on("click", function () {
         $(".sunset-sidebar").toggleClass("hidden");
         $(".sidebar-overlay").toggleClass("hidden");
+    });
+
+    // contact form
+    $("#sunset_contact_form").on("submit", function (e) {
+        e.preventDefault();
+
+        // let url = $(this).data("url");
+
+        let name = $(this).find("#name").val();
+        let email = $(this).find("#email").val();
+        let message = $(this).find("#message").val();
+
+        let formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+        formData.append("_nonce", helper_js.nonce);
+        formData.append("action", "contact_us_action");
+
+        fetch(helper_js.contact_us_url, {
+            method: "POST",
+            body: formData,
+        })
+            .then((resp) => {
+                return resp.text();
+            })
+            .then((text) => {
+                console.log(text);
+                if (text == "yes") {
+                    $(this).find("#alert-feed").text("Message sent with success");
+
+                    $(this).find("#alert-feed").addClass("alert-success");
+                    $(this).find("button").addClass("hidden");
+                    $(this).find("#alert-feed").removeClass("hidden");
+                } else if (text == "no") {
+                    $(this).find("#alert-feed").text("Something went wrong");
+
+                    $(this).find("#alert-feed").addClass("alert-danger");
+                    $(this).find("#alert-feed").removeClass("hidden");
+                }
+            })
+            .catch((resp) => {
+                $(this).find("#alert-feed").text("Something went wrong");
+
+                $(this).find("#alert-feed").addClass("alert-danger");
+                $(this).find("#alert-feed").removeClass("hidden");
+            })
+            .then(() => {
+                setTimeout(() => {
+                    $(this).find("#alert-feed").addClass("hidden");
+                }, 3000);
+            });
     });
 });
