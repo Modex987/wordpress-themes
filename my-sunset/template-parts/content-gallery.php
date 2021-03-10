@@ -8,7 +8,7 @@
  * =======================
  */
 
-$detect = new Mobile_Detect();
+global $detect;
 
 if ( !$detect->isMobile() ):
 

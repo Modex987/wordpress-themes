@@ -51,6 +51,10 @@ add_action('after_setup_theme', function() {
     register_nav_menus(array(
         'primary' => 'Theme header Primary Menu',
     ));
+
+    // mobile detect
+    global $detect;
+    $detect = new Mobile_Detect();
 });
 
 
